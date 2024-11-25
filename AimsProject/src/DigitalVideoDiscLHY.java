@@ -4,6 +4,9 @@ public class DigitalVideoDiscLHY {
 	private int length;
 	private String director;
 	private float cost;
+	
+	private static int nbDigitalVideoDiscs = 0;
+    private int id;
 
     public String getTitleLHY() {
         return this.title;
@@ -28,29 +31,42 @@ public class DigitalVideoDiscLHY {
     public void setterTitleLHY(String title) {
 		this.title = title;
 	}
+    
+    public int getId() {
+		return id;
+    }
 
     public DigitalVideoDiscLHY(String title) {
+       	super();
         this.title = title;
+        this.id = ++nbDigitalVideoDiscs;
     }
 
     public DigitalVideoDiscLHY(String title, String category, float cost) {
-        this.title = title;
+       	super();
+       	this.title = title;
         this.category = category;
         this.cost = cost;
+        this.id = ++nbDigitalVideoDiscs;
     }
 
     public DigitalVideoDiscLHY(String director, String category, String title, float cost) {
-    	this.title = title;
-		this.category = category;
-		this.director = director;
-		this.cost = cost;
+       	super();
+       	this.title = title;
+        this.category = category;
+    	this.director = director;
+    	this.cost = cost;
+    	this.id = ++nbDigitalVideoDiscs;
     }
 
     public DigitalVideoDiscLHY(String title, String category, String director, int length, float cost) {
+       	super();
     	this.title = title;
-		this.category = category;
-		this.director = director;
-		this.length = length;
-		this.cost = cost;
+    	this.category = category;
+    	this.director = director;
+    	this.length = length;
+    	this.cost = cost;
+    	this.id = ++nbDigitalVideoDiscs;
     }
+
 }
