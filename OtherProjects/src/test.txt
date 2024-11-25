@@ -1,0 +1,7 @@
+This is a test file for garbage collection in Java.
+We are testing String concatenation using the + operator and StringBuffer.
+The goal is to observe performance differences when dealing with large strings.
+The more data we add, the slower the performance should become when using + operator.
+StringBuffer should perform better as it avoids creating new objects on each concatenation.
+Let's add more data here to make the file bigger and see how performance is affected.
+The goal is to create a significant amount of garbage that will slow down the program.
