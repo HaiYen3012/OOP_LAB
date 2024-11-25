@@ -1,5 +1,8 @@
+package hust.soict.ITE6.aims.store;
 import java.util.ArrayList;
 import java.util.List;
+
+import hust.soict.ITE6.aims.disc.DigitalVideoDiscLHY;
 
 public class Store {
 	private List<DigitalVideoDiscLHY> itemsInStore = new ArrayList<DigitalVideoDiscLHY>();
