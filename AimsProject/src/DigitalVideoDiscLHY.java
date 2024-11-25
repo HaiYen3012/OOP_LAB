@@ -35,6 +35,10 @@ public class DigitalVideoDiscLHY {
     public int getId() {
 		return id;
     }
+    
+    public boolean isMatch(String keyword) {
+		return this.title.toLowerCase().contains(keyword.toLowerCase());
+	}
 
     public DigitalVideoDiscLHY(String title) {
        	super();
