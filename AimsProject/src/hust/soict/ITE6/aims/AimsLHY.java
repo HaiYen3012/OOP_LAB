@@ -1,3 +1,7 @@
+package hust.soict.ITE6.aims;
+import hust.soict.ITE6.aims.cart.CartLHY;
+import hust.soict.ITE6.aims.disc.DigitalVideoDiscLHY;
+
 public class AimsLHY {
     public static void main(String[] args) {
         // Create a new cart

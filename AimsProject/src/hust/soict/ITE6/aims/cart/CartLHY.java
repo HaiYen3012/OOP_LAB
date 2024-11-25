@@ -1,3 +1,6 @@
+package hust.soict.ITE6.aims.cart;
+import hust.soict.ITE6.aims.disc.DigitalVideoDiscLHY;
+
 public class CartLHY {
     
     public static final int MAX_NUMBERS_ORDERED = 20;

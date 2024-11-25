@@ -1,4 +1,4 @@
-package LAB_01;
+package src.hust.soict.ITE6.Lab01;
 
 import javax.swing.JOptionPane;
 

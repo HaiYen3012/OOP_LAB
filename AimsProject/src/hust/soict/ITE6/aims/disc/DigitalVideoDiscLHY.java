@@ -1,3 +1,4 @@
+package hust.soict.ITE6.aims.disc;
 public class DigitalVideoDiscLHY {
 	private String title;
 	private String category;

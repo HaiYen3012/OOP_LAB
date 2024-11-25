@@ -1,3 +1,6 @@
+package hust.soict.ITE6.test.disc;
+import hust.soict.ITE6.aims.disc.DigitalVideoDiscLHY;
+
 public class TestPassingParameter {
 	public static void main(String[] args) {
 		DigitalVideoDiscLHY jungleDVD = new DigitalVideoDiscLHY("Jungle");
