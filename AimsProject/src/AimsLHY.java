@@ -1,5 +1,3 @@
-package LAB_02.AimsProject;
-
 public class AimsLHY {
     public static void main(String[] args) {
         // Create a new cart

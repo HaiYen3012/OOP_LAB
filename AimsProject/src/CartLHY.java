@@ -1,5 +1,3 @@
-package LAB_02.AimsProject;
-
 public class CartLHY {
     
     public static final int MAX_NUMBERS_ORDERED = 20;
@@ -15,6 +13,24 @@ public class CartLHY {
             System.out.println("Your cart is full, cannot add a new item!");
         }
     }
+    
+    public void addDigitalVideoDiscLHY(DigitalVideoDiscLHY [] dvdList) {
+       	if (dvdList.length > MAX_NUMBERS_ORDERED) {
+       		System.out.println("Your cart is full, cannot add a new item!");
+       	} else {
+       		for (int i = 0; i < dvdList.length; i++) {
+       			itemsOrdered[qtyOrdered] = dvdList[i];
+       			System.out.println("DigitalVideoDisc: " + dvdList[i].getTitleLHY() + " has been added!");
+       			qtyOrdered ++ ;
+       		}
+       	}
+    }
+      
+    public void addDigitalVideoDiscLHY(DigitalVideoDiscLHY dvd1,DigitalVideoDiscLHY dvd2) {
+           DigitalVideoDiscLHY [] dvdList = {dvd1, dvd2};
+           addDigitalVideoDiscLHY(dvdList);
+    }
+
 
     public void removeDigitalVideoDiscLHY(DigitalVideoDiscLHY disc) {
         boolean found = false; // To check if the disc was found

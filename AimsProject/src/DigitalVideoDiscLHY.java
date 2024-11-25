@@ -1,5 +1,3 @@
-package LAB_02.AimsProject;
-
 public class DigitalVideoDiscLHY {
     private String title;
     private String category;
