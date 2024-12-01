@@ -1,6 +1,6 @@
 package hust.soict.ITE6.aims.media;
 
-public class DigitalVideoDiscLHY extends Disc {
+public class DigitalVideoDiscLHY extends Disc implements Playable {
     public boolean isMatch(String keyword) {
 		return this.getTitle().toLowerCase().contains(keyword.toLowerCase());
 	}
@@ -28,5 +28,10 @@ public class DigitalVideoDiscLHY extends Disc {
 				" - DVD length: " + this.getLength() +
 				" - Cost: " + this.getCost() + "$";
 	}
+    
+    public void play() {
+        System.out.println("Playing DVD: " + this.getTitle());
+        System.out.println("DVD length: " + this.getLength());
+    }
 
 }
