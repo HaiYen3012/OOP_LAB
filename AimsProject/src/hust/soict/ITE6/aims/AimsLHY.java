@@ -1,6 +1,6 @@
 package hust.soict.ITE6.aims;
 import hust.soict.ITE6.aims.cart.CartLHY;
-import hust.soict.ITE6.aims.disc.DigitalVideoDiscLHY;
+import hust.soict.ITE6.aims.media.DigitalVideoDiscLHY;
 
 public class AimsLHY {
     public static void main(String[] args) {

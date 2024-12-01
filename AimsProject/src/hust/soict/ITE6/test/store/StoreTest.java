@@ -1,5 +1,5 @@
 package hust.soict.ITE6.test.store;
-import hust.soict.ITE6.aims.disc.DigitalVideoDiscLHY;
+import hust.soict.ITE6.aims.media.DigitalVideoDiscLHY;
 import hust.soict.ITE6.aims.store.Store;
 
 public class StoreTest {

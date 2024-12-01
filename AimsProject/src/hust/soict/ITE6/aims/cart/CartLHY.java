@@ -1,5 +1,5 @@
 package hust.soict.ITE6.aims.cart;
-import hust.soict.ITE6.aims.disc.DigitalVideoDiscLHY;
+import hust.soict.ITE6.aims.media.DigitalVideoDiscLHY;
 
 public class CartLHY {
     
@@ -23,7 +23,7 @@ public class CartLHY {
        	} else {
        		for (int i = 0; i < dvdList.length; i++) {
        			itemsOrdered[qtyOrdered] = dvdList[i];
-       			System.out.println("DigitalVideoDisc: " + dvdList[i].getTitleLHY() + " has been added!");
+       			System.out.println("DigitalVideoDisc: " + dvdList[i].getTitle() + " has been added!");
        			qtyOrdered ++ ;
        		}
        	}
@@ -38,7 +38,7 @@ public class CartLHY {
     public void removeDigitalVideoDiscLHY(DigitalVideoDiscLHY disc) {
         boolean found = false; // To check if the disc was found
         for (int i = 0; i < qtyOrdered; i++) {
-            if (itemsOrdered[i].getTitleLHY().equals(disc.getTitleLHY())) {
+            if (itemsOrdered[i].getTitle().equals(disc.getTitle())) {
                 found = true; // Set found to true
                 for (int j = i; j < qtyOrdered - 1; j++) {
                     itemsOrdered[j] = itemsOrdered[j + 1]; // Shift items left
@@ -57,7 +57,7 @@ public class CartLHY {
     public float totalCost() {
         float total = 0;
         for (int i = 0; i < qtyOrdered; i++) {
-            total += itemsOrdered[i].getPriceLHY(); // Calculate total price
+            total += itemsOrdered[i].getCost(); // Calculate total price
         }
         return total;
     }

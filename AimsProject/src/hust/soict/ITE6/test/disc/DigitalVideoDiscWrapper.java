@@ -1,5 +1,5 @@
 package hust.soict.ITE6.test.disc;
-import hust.soict.ITE6.aims.disc.DigitalVideoDiscLHY;
+import hust.soict.ITE6.aims.media.DigitalVideoDiscLHY;
 
 public class DigitalVideoDiscWrapper {
    DigitalVideoDiscLHY dvd;
