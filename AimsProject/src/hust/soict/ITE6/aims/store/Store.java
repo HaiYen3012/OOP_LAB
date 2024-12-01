@@ -2,7 +2,7 @@ package hust.soict.ITE6.aims.store;
 import java.util.ArrayList;
 import java.util.List;
 
-import hust.soict.ITE6.aims.disc.DigitalVideoDiscLHY;
+import hust.soict.ITE6.aims.media.DigitalVideoDiscLHY;
 
 public class Store {
 	private List<DigitalVideoDiscLHY> itemsInStore = new ArrayList<DigitalVideoDiscLHY>();
@@ -11,10 +11,10 @@ public class Store {
 	{
 		int index = itemsInStore.indexOf(dvd);
 		if (index != -1) {
-            System.out.println(dvd.getTitleLHY() + " is already available in the store.");
+            System.out.println(dvd.getTitle() + " is already available in the store.");
         } else {
             itemsInStore.add(dvd);
-            System.out.println(dvd.getTitleLHY() + " has been successfully added to the store.");
+            System.out.println(dvd.getTitle() + " has been successfully added to the store.");
         }
 	}
 	
@@ -23,9 +23,9 @@ public class Store {
 		boolean removed = itemsInStore.remove(dvd);
 		if(removed)
 		{
-			System.out.println(dvd.getTitleLHY() + " has been successfully removed from the store.");
+			System.out.println(dvd.getTitle() + " has been successfully removed from the store.");
 		} else {
-			System.out.println(dvd.getTitleLHY() + " was not found in the store.");
+			System.out.println(dvd.getTitle() + " was not found in the store.");
 		}
 	}
 	

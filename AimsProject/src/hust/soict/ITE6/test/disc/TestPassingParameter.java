@@ -1,5 +1,5 @@
 package hust.soict.ITE6.test.disc;
-import hust.soict.ITE6.aims.disc.DigitalVideoDiscLHY;
+import hust.soict.ITE6.aims.media.DigitalVideoDiscLHY;
 
 public class TestPassingParameter {
 	public static void main(String[] args) {
@@ -12,16 +12,16 @@ public class TestPassingParameter {
 		
        // Call the wrong swap() method
        swap(jungleDVD, cinderellaDVD);
-       System.out.println("Wrong swapped jungle dvd title: " + jungleDVD.getTitleLHY());
-       System.out.println("Wrong swapped cinderella dvd title: " + cinderellaDVD.getTitleLHY());
+       System.out.println("Wrong swapped jungle dvd title: " + jungleDVD.getTitle());
+       System.out.println("Wrong swapped cinderella dvd title: " + cinderellaDVD.getTitle());
       
        // Call the correct swap() method
        swap(jungleWrapper, cinderellaWrapper);
-       System.out.println("Correct swapped jungle dvd title: " + jungleWrapper.dvd.getTitleLHY());
-       System.out.println("Correct swapped cinderella dvd title: " + cinderellaWrapper.dvd.getTitleLHY());
+       System.out.println("Correct swapped jungle dvd title: " + jungleWrapper.dvd.getTitle());
+       System.out.println("Correct swapped cinderella dvd title: " + cinderellaWrapper.dvd.getTitle());
 		
-		changeTitleLHY(jungleDVD, cinderellaDVD.getTitleLHY());
-		System.out.println("Change jungle dvd title: " + jungleDVD.getTitleLHY());
+		changeTitleLHY(jungleDVD, cinderellaDVD.getTitle());
+		System.out.println("Change jungle dvd title: " + jungleDVD.getTitle());
 	}
 	
 	// Wrong
@@ -42,8 +42,8 @@ public class TestPassingParameter {
 	
 	public static void changeTitleLHY(DigitalVideoDiscLHY dvd, String title)
 	{
-		String oldTitle = dvd.getTitleLHY();
-		dvd.setterTitleLHY(title);
+		String oldTitle = dvd.getTitle();
+		dvd.setTitle(title);
 		dvd = new DigitalVideoDiscLHY(oldTitle);
 	}
 }
