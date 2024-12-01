@@ -9,11 +9,11 @@ public class AimsLHY {
         
         // Create new DVD objects and add them to the cart
         DigitalVideoDiscLHY dvd1 = new DigitalVideoDiscLHY("The Lion King", 
-            "Animation", "Roger Allers", 87, 19.95f);
+            "Animation", 19.95f, "Roger Allers", 87);
         anOrder.addDigitalVideoDiscLHY(dvd1);
         
         DigitalVideoDiscLHY dvd2 = new DigitalVideoDiscLHY("Star Wars", 
-            "Science Fiction", "George Lucas", 87, 24.95f);
+            "Science Fiction", 24.95f, "George Lucas", 87);
         anOrder.addDigitalVideoDiscLHY(dvd2);
         
         DigitalVideoDiscLHY dvd3 = new DigitalVideoDiscLHY("Aladin", 
@@ -22,7 +22,7 @@ public class AimsLHY {
         
         // Add dvd4
         DigitalVideoDiscLHY dvd4 = new DigitalVideoDiscLHY("The Incredibles", 
-            "Animation", "Brad Bird", 115, 21.99f);
+            "Animation", 21.99f, "Brad Bird", 115);
         anOrder.addDigitalVideoDiscLHY(dvd4);
 
         // Print total cost of the items in the cart

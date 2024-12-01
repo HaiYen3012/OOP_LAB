@@ -7,11 +7,11 @@ public class StoreTest {
 		Store store = new Store();
 		
 		DigitalVideoDiscLHY dvd1 = new DigitalVideoDiscLHY("The Lion King",
-				"Animation", "Roger Allers", 87, 19.95f);
+				"Animation", 19.95f, "Roger Allers", 87);
 		store.addDVD(dvd1);
 		
 		DigitalVideoDiscLHY dvd2 = new DigitalVideoDiscLHY("Star Wars",
-				"Science Fiction", "George Lucas", 87, 24.95f);
+				"Science Fiction", 24.95f, "George Lucas", 87);
 		store.addDVD(dvd2);
 		
 		DigitalVideoDiscLHY dvd3 = new DigitalVideoDiscLHY("Aladin", 
