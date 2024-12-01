@@ -1,17 +1,6 @@
 package hust.soict.ITE6.aims.media;
 
-public class DigitalVideoDiscLHY extends Media {
-	private int length;
-	private String director;
-
-    public int getLengthLHY() {
-        return this.length;
-    }
-
-    public String getDirectorLHY() {
-        return this.director;
-    }
-
+public class DigitalVideoDiscLHY extends Disc {
     public boolean isMatch(String keyword) {
 		return this.getTitle().toLowerCase().contains(keyword.toLowerCase());
 	}
@@ -25,21 +14,18 @@ public class DigitalVideoDiscLHY extends Media {
     }
 
     public DigitalVideoDiscLHY(String director, String category, String title, float cost) {
-    	super(title, category, cost);
-    	this.director = director;
+    	super(title, category, cost, director);
     }
 
-    public DigitalVideoDiscLHY(String title, String category, String director, int length, float cost) {
-    	super(title, category, cost);
-    	this.director = director;
-    	this.length = length;
+    public DigitalVideoDiscLHY(String title, String category, float cost, String director, int length) {
+    	super(title, category, cost, director, length);
     }
     
     public String toString() {
 		return this.getId() + ". DVD: " + this.getTitle() +
 				" - Category: " + this.getCategory() +
-				" - Director: " + this.director +
-				" - DVD length: " + this.length +
+				" - Director: " + this.getDirector() +
+				" - DVD length: " + this.getLength() +
 				" - Cost: " + this.getCost() + "$";
 	}
 
