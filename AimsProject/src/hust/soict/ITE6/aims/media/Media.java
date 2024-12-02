@@ -59,5 +59,11 @@ public abstract class Media {
     	Media other = (Media) obj;
         return this.getTitle().equals(other.getTitle());
     }
+    
+    public String toString() {
+    	return "Media: " + this.getTitle() + 
+    		   " - Category: " + this.getCategory() + 
+    		   " - Cost: " + this.getCost() + "$";
+    }
 
 }
