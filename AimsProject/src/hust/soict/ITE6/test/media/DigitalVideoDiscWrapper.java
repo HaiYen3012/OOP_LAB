@@ -1,4 +1,4 @@
-package hust.soict.ITE6.test.disc;
+package hust.soict.ITE6.test.media;
 import hust.soict.ITE6.aims.media.DigitalVideoDiscLHY;
 
 public class DigitalVideoDiscWrapper {
