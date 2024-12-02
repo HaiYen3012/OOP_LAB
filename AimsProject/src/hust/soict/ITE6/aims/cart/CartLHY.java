@@ -53,7 +53,15 @@ public class CartLHY {
     }
     
     public void addMedia(Media media1, Media media2) {
-        addMedia(media1, media2);
+    	if(itemsOrdered.size() < MAX_NUMBERS_ORDERED) {
+    		itemsOrdered.add(media1);
+			System.out.println("The media " + media1.getTitle() + " has been added.");
+		}
+		else System.out.println("The cart is almost full.");
+		if(itemsOrdered.size() < MAX_NUMBERS_ORDERED) {
+			itemsOrdered.add(media2);
+		}
+		else System.out.println("The cart is almost full.");
     }
     
     public void removeMedia(Media media) {
