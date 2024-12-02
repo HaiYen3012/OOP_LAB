@@ -1,41 +1,37 @@
 package hust.soict.ITE6.aims.store;
 import java.util.ArrayList;
-import java.util.List;
-
-import hust.soict.ITE6.aims.media.DigitalVideoDiscLHY;
+import hust.soict.ITE6.aims.media.Media;
 
 public class Store {
-	private List<DigitalVideoDiscLHY> itemsInStore = new ArrayList<DigitalVideoDiscLHY>();
+	private ArrayList<Media> itemsInStore = new ArrayList<Media>();
 	
-	public void addDVD(DigitalVideoDiscLHY dvd)
-	{
-		int index = itemsInStore.indexOf(dvd);
-		if (index != -1) {
-            System.out.println(dvd.getTitle() + " is already available in the store.");
-        } else {
-            itemsInStore.add(dvd);
-            System.out.println(dvd.getTitle() + " has been successfully added to the store.");
-        }
+	public void addMedia(Media media) {
+	    if (!itemsInStore.contains(media)) {
+	        itemsInStore.add(media);
+	        System.out.println("Added: " + media.getTitle());
+	    } else {
+	        System.out.println(media.getTitle() + " is already in the store.");
+	    }
 	}
 	
-	public void removeDVD(DigitalVideoDiscLHY dvd)
-	{
-		boolean removed = itemsInStore.remove(dvd);
-		if(removed)
-		{
-			System.out.println(dvd.getTitle() + " has been successfully removed from the store.");
-		} else {
-			System.out.println(dvd.getTitle() + " was not found in the store.");
-		}
+	public void removeMedia(Media media) {
+	    if (itemsInStore.contains(media)) {
+	        itemsInStore.remove(media);
+	        System.out.println("Removed: " + media.getTitle());
+	    } else {
+	        System.out.println(media.getTitle() + " is not in the store.");
+	    }
 	}
 	
 	public void displayDVD() {
 		if (itemsInStore.isEmpty()) {
-            System.out.println("No DVDs available in the store.");
+            System.out.println("The store is currently empty. No media available.");
         } else {
+        	System.out.println("********************List of media in the store********************");
             for (int i = 0; i < itemsInStore.size(); i++) {
                 System.out.println((i + 1) + ". " + itemsInStore.get(i));
             }
+            System.out.println("******************************************************************");
         }
 	}
 }
