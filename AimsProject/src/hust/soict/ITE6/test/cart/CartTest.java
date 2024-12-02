@@ -16,6 +16,9 @@ public class CartTest {
        DigitalVideoDiscLHY dvd3 = new DigitalVideoDiscLHY("Aladin",
        		"Animation", 18.99f);
        cart.addMedia(dvd3);
+       DigitalVideoDiscLHY dvd4 = new DigitalVideoDiscLHY("Aladin",
+          		"Animation", 18.99f);
+          cart.addMedia(dvd4);
        cart.print();
        cart.searchByID(1);
        cart.searchByTitle("Star");
