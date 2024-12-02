@@ -1,10 +1,6 @@
 package hust.soict.ITE6.aims.media;
 
 public class DigitalVideoDiscLHY extends Disc implements Playable {
-    public boolean isMatch(String keyword) {
-		return this.getTitle().toLowerCase().contains(keyword.toLowerCase());
-	}
-
     public DigitalVideoDiscLHY(String title) {
        	super(title);
     }
