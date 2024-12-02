@@ -1,0 +1,36 @@
+Question: 
+- Which classes are aggregates of other classes? Checking all constructors of whole classes if they initialize for their parts?
+    Các lớp là tập hợp (aggregates) của các lớp khác:
+        Lớp `CompactDisc` là tập hợp của lớp `Track` (chứa danh sách các đối tượng `Track`).
+        Lớp `Cart` là tập hợp của lớp `Media` (chứa danh sách các đối tượng `Media`).
+    Kiểm tra các constructor:
+        Trong lớp `CompactDisc`, constructor cần khởi tạo danh sách `tracks` (`ArrayList<Track>`). Nếu không, việc thêm track sẽ gây ra lỗi `NullPointerException`.
+        Trong lớp `Cart`, constructor cần khởi tạo danh sách `Media` (`ArrayList<Media>`).
+- Write constructors for parent and child classes. Remove redundant setter methods if any
+    Constructor cha:
+        Trong lớp `Media`, các thuộc tính như `title`, `category`, và `cost` nên được khởi tạo thông qua constructor.
+    Constructor con:
+        Trong lớp `Disc` hoặc `Book`, các thuộc tính đặc thù như `author` (trong `Book`) hoặc `director`, `length` (trong `Disc`) cần được khởi tạo trong constructor.
+    Loại bỏ setter thừa:
+        Nếu các thuộc tính được khởi tạo thông qua constructor và không cần thay đổi sau đó, các phương thức setter tương ứng có thể bị loại bỏ để đảm bảo tính bất biến.
+ 
+        
+  Alternatively, to compare items in the cart, instead of using Comparator, we can use the Comparable interface and override the compareTo() method. You can refer to the Java docs to see the information of this interface.
+Suppose we are taking this Comparable interface approach.
+- What class should implement the Comparable interface?    
+    Lớp cần implement `Comparable`: Lớp `Media` nên implement giao diện `Comparable` vì đây là lớp cha của tất cả các loại phương tiện (CD, DVD, Book), và việc so sánh cần được áp dụng chung cho mọi loại.
+
+- In those classes, how should you implement the compareTo()method be to reflect the ordering that we want?  
+    Trong lớp `Media`, phương thức `compareTo()` nên sắp xếp theo:
+        Tiêu đề (`title`) theo thứ tự tăng dần.
+        Nếu tiêu đề giống nhau, so sánh giá (`cost`) theo thứ tự giảm dần.
+
+- Can we have two ordering rules of the item (by title then cost and by cost then title) if we use this Comparable interface approach?  
+    Không, chúng ta không thể có hai quy tắc sắp xếp trong cùng một lớp nếu sử dụng giao diện `Comparable`. `Comparable` chỉ cho phép định nghĩa một thứ tự tự nhiên duy nhất.
+
+- Suppose the DVDs has a different ordering rule from the other media types, that is by title, then decreasing length, then cost. How would you modify your code to allow this?  
+    Trong lớp `Disc` (hoặc cụ thể hơn là `DigitalVideoDisc`), chúng ta có thể ghi đè phương thức `compareTo()` để phản ánh quy tắc sắp xếp mới.  
+    Quy tắc mới:
+        Sắp xếp theo tiêu đề (`title`) tăng dần.
+        Nếu tiêu đề giống nhau, sắp xếp theo độ dài (`length`) giảm dần.
+        Nếu độ dài giống nhau, sắp xếp theo giá (`cost`) tăng dần.
