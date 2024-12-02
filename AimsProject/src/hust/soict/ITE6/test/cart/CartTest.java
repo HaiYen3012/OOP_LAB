@@ -9,13 +9,13 @@ public class CartTest {
       
        DigitalVideoDiscLHY dvd1 = new DigitalVideoDiscLHY("The Lion King",
        		"Animation", 19.95f, "Roger Allers", 87);
-       cart.addDigitalVideoDiscLHY(dvd1);
+       cart.addMedia(dvd1);
        DigitalVideoDiscLHY dvd2 = new DigitalVideoDiscLHY("Star War",
        		"Science Fiction", 24.95f, "George Lucas", 87);
-       cart.addDigitalVideoDiscLHY(dvd2);
+       cart.addMedia(dvd2);
        DigitalVideoDiscLHY dvd3 = new DigitalVideoDiscLHY("Aladin",
        		"Animation", 18.99f);
-       cart.addDigitalVideoDiscLHY(dvd3);
+       cart.addMedia(dvd3);
        cart.print();
        cart.searchByID(1);
        cart.searchByTitle("Star");
