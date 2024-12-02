@@ -8,16 +8,8 @@ public class Track implements Playable {
 		return title;
 	}
 
-	public void setTitle(String title) {
-		this.title = title;
-	}
-
 	public int getLength() {
 		return length;
-	}
-
-	public void setLength(int length) {
-		this.length = length;
 	}
 
 	public Track(String title, int length) {
