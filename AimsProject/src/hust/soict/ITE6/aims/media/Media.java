@@ -54,6 +54,10 @@ public abstract class Media implements Comparable<Media> {
 		return this.getTitle().toLowerCase().contains(keyword.toLowerCase());
 	}
     
+    public void play() {
+        System.out.println("Playing media");
+    }
+    
     public boolean equals(Object obj) {
     	if (obj == this) {
     		return true;

@@ -121,5 +121,45 @@ public class CartLHY {
        		System.out.println("No DVDs found with the title containing \"" + keyword + "\".");
        	}
     }
+    
+    public Media searchToRemove(String title) {
+		for (Media media : itemsOrdered) {
+			if (media.getTitle().equals(title)) {
+				return media;
+			}
+		}
+		return null;
+	}
+    
+    public int qtyOrdered = 0;
+
+    public void empty() {
+        if (itemsOrdered.size() == 0) {
+            System.out.println("The cart is currently empty, nothing to remove!");
+        } else {
+            qtyOrdered = 0;
+            itemsOrdered.clear();
+            System.out.println("Order has been created.");
+            System.out.println("Your current cart is now empty!");
+            System.out.println();
+        }
+    }
+
+    public void sortMediaByTitle() {
+        Collections.sort(itemsOrdered, Media.COMPARE_BY_TITLE_COST);
+        System.out.println("Media list after sorting by title and cost:");
+        for (Media media : itemsOrdered) {
+            System.out.println(media.toString());
+        }
+    }
+
+    public void sortMediaByCost() {
+        Collections.sort(itemsOrdered, Media.COMPARE_BY_COST_TITLE);
+        System.out.println("Media list after sorting by cost and title:");
+        for (Media media : itemsOrdered) {
+            System.out.println(media.toString());
+        }
+    }
+
 
 }

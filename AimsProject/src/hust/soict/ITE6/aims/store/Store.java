@@ -35,4 +35,13 @@ public class Store {
             System.out.println("******************************************************************");
         }
 	}
+	
+	public Media search(String title) {
+		for (Media media : itemsInStore) {
+			if (media.getTitle().equalsIgnoreCase(title)) {
+				return media;
+			}
+		}
+		return null;
+	}
 }
