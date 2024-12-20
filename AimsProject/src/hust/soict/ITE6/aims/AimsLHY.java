@@ -1,5 +1,6 @@
 package hust.soict.ITE6.aims;
 import hust.soict.ITE6.aims.cart.CartLHY;
+import javax.naming.LimitExceededException;
 import hust.soict.ITE6.aims.media.*;
 import hust.soict.ITE6.aims.store.Store;
 
@@ -149,7 +150,11 @@ public class AimsLHY {
                         }
                         Media media = store.search(title);
                         if (media != null) {
-                            cart.addMedia(media);
+                        	try {
+                                cart.addMedia(media);
+                            } catch (LimitExceededException e) {
+                                e.printStackTrace();
+                            }
                             foundToAdd = true;
                         } else {
                             System.out.println("***MEDIA NOT FOUND***");
@@ -212,7 +217,11 @@ public class AimsLHY {
                     back = true;
                 }
                 case 1 -> {
-                    cart.addMedia(media);
+                	try {
+                        cart.addMedia(media);
+                    } catch (LimitExceededException e) {
+                        e.printStackTrace();
+                    }
                 }
                 case 2 -> {
                     if (media instanceof Disc || media instanceof CompactDisc) {
