@@ -1,6 +1,9 @@
 package hust.soict.ITE6.aims.media;
 
 import java.util.Comparator;
+import java.time.Duration;
+
+import hust.soict.ITE6.aims.exception.PlayerException;
 
 public abstract class Media implements Comparable<Media> {
 	public static final Comparator<Media> COMPARE_BY_TITLE_COST = new MediaComparatorByTitleCost();
@@ -58,19 +61,26 @@ public abstract class Media implements Comparable<Media> {
         System.out.println("Playing media");
     }
     
-    public String playGUI() {
-    	return "Playing media";
+    public String playGUI() throws PlayerException {
+        return "Playing media";
     }
     
+    public String formatDuration(int durationInSeconds) {
+        Duration duration = Duration.ofSeconds(durationInSeconds);
+        return String.format("%02d:%02d", duration.toMinutes(), duration.minusMinutes(duration.toMinutes()).getSeconds());
+    }
+    
+    @Override
     public boolean equals(Object obj) {
     	if (obj == this) {
     		return true;
     	}
-    	if (!(obj instanceof Media)) {
-    		return false;
-    	}
-    	Media other = (Media) obj;
-        return this.getTitle().equals(other.getTitle());
+    	if (obj == null || !(obj instanceof Media)) {
+            return false;
+        }
+    	Media otherMedia = (Media) obj;
+        return this.getTitle() != null && this.getTitle().equals(otherMedia.getTitle());
+
     }
     
     public String toString() {

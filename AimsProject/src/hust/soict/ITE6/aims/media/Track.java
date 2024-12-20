@@ -1,4 +1,6 @@
 package hust.soict.ITE6.aims.media;
+import java.time.Duration;
+import hust.soict.ITE6.aims.exception.PlayerException;
 
 public class Track implements Playable {
 	private String title;
@@ -21,6 +23,21 @@ public class Track implements Playable {
 		System.out.println("Playing track: " + this.getTitle());
 		System.out.println("Track length: " + this.getLength());
 	}
+	
+	public String formatDuration(int durationInSeconds) {
+        Duration duration = Duration.ofSeconds(durationInSeconds);
+        return String.format("%02d:%02d", duration.toMinutes(),
+        		duration.minusMinutes(duration.toMinutes()).getSeconds());
+    }
+	
+	public String playGUI() throws PlayerException {
+        if (this.getLength() > 0) {
+            return "Playing track: " + this.getTitle() + "\n" + 
+                "Track length: " + formatDuration(this.getLength());
+        } else {
+            throw new PlayerException("ERROR: Track length is non-positive!");
+        }
+    }
 	
 	public boolean equals(Object obj) {
 		if (obj == this) {

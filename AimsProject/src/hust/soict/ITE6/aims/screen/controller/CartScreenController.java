@@ -10,6 +10,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import hust.soict.ITE6.aims.exception.PlayerException;
 
 public class CartScreenController {
 	private CartLHY cart;
@@ -65,13 +66,22 @@ public class CartScreenController {
 	
 	@FXML
 	void btnPlayPressed(ActionEvent event) {
-		Media media = tblMedia.getSelectionModel().getSelectedItem();
-		Alert alert = new Alert(Alert.AlertType.NONE, media.playGUI());
-		alert.setTitle("Playing");
-		alert.setHeaderText(null);
-		alert.getDialogPane().getButtonTypes().add(ButtonType.OK);
-		alert.showAndWait();
-	}
+        Media media = tblMedia.getSelectionModel().getSelectedItem();
+        Alert alert;
+        try {
+            alert = new Alert(Alert.AlertType.NONE, media.playGUI());
+            alert.setTitle("Playing");
+            alert.setHeaderText(null);
+            alert.getDialogPane().getButtonTypes().add(ButtonType.OK);
+            alert.showAndWait();
+        } catch (PlayerException e) {
+            alert = new Alert(Alert.AlertType.ERROR, e.getMessage());
+            alert.setTitle("ERROR");
+            alert.setHeaderText(null);
+            alert.showAndWait();
+        }
+        
+    }
 	
 	@FXML
 	void btnRemovePressed(ActionEvent event) {
