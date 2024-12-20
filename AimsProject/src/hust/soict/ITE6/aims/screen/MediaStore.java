@@ -53,25 +53,10 @@ public class MediaStore extends JPanel {
         container.add(addToCartButton);
 
 
+        // Play Button for Playable items (like DVD or CD)
         if (media instanceof Playable) {
             JButton playButton = new JButton(PLAY_BUTTON_TEXT);
-            playButton.addActionListener(new ActionListener() {
-                public void actionPerformed(ActionEvent e) {
-                    JDialog dialog = new JDialog();
-                    dialog.setTitle(media.getTitle());
-                    dialog.setSize(400, 300);
-
-                    JLabel mediaLabel = new JLabel(media.playGUI());
-                    mediaLabel.setVerticalAlignment(JLabel.CENTER);
-                    mediaLabel.setHorizontalAlignment(JLabel.CENTER);
-
-                    JScrollPane scrollPane = new JScrollPane(mediaLabel);
-                    scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
-
-                    dialog.add(scrollPane);
-                    dialog.setVisible(true);
-                }
-            });
+            playButton.addActionListener(e -> showPlayDialog((Playable) media));
             container.add(playButton);
         }
 
@@ -94,18 +79,35 @@ public class MediaStore extends JPanel {
         JDialog playDialog = new JDialog((JFrame) SwingUtilities.getWindowAncestor(this), "Play Media", true);
         playDialog.setLayout(new BorderLayout());
 
+     // Create a panel to hold the JTextArea with padding
+        JPanel panel = new JPanel();
+        panel.setLayout(new BorderLayout());
+        
         // Text area for the message
         JTextArea messageArea = new JTextArea(playMessage);
         messageArea.setFont(new Font("Arial", Font.PLAIN, 16));
         messageArea.setEditable(false);
+        messageArea.setWrapStyleWord(true);
+        messageArea.setLineWrap(true);  // Enable word wrapping
+        messageArea.setBackground(new Color(240, 240, 240));  // Light background for readability
+        messageArea.setMargin(new Insets(10, 10, 10, 10));  // Add margin to prevent text from sticking to the edges
+        panel.add(new JScrollPane(messageArea), BorderLayout.CENTER);
 
-        playDialog.add(new JScrollPane(messageArea), BorderLayout.CENTER);
+        playDialog.add(panel, BorderLayout.CENTER);
 
-        // Close Button
+        // Close Button with better styling
+        JPanel buttonPanel = new JPanel();
+        buttonPanel.setLayout(new FlowLayout(FlowLayout.CENTER));  // Center the button
         JButton closeButton = new JButton("Close");
+        closeButton.setFont(new Font("Arial", Font.BOLD, 14));
+        closeButton.setBackground(new Color(60, 179, 113)); // A pleasant green background
+        closeButton.setForeground(Color.WHITE);  // White text
         closeButton.addActionListener(e -> playDialog.dispose());
-        playDialog.add(closeButton, BorderLayout.SOUTH);
+        buttonPanel.add(closeButton);
 
+        playDialog.add(buttonPanel, BorderLayout.SOUTH);
+
+        // Set the size and location of the dialog
         playDialog.setSize(400, 200);
         playDialog.setLocationRelativeTo(this);
         playDialog.setVisible(true);
