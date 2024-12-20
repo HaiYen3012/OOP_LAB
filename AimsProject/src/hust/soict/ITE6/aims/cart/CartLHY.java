@@ -2,10 +2,16 @@ package hust.soict.ITE6.aims.cart;
 import java.util.*;
 
 import hust.soict.ITE6.aims.media.Media;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 public class CartLHY {
     public static final int MAX_NUMBERS_ORDERED = 20;
-    private ArrayList<Media> itemsOrdered = new ArrayList<Media>();
+    private ObservableList<Media> itemsOrdered = FXCollections.observableArrayList();
+    
+    public ObservableList<Media> getItemsOrdered(){
+    	return itemsOrdered;
+    }
     
     public void addMedia(Media media) {
         if (itemsOrdered.size() >= MAX_NUMBERS_ORDERED) {
@@ -146,7 +152,7 @@ public class CartLHY {
     }
 
     public void sortMediaByTitle() {
-        Collections.sort(itemsOrdered, Media.COMPARE_BY_TITLE_COST);
+        FXCollections.sort(itemsOrdered, Media.COMPARE_BY_TITLE_COST);
         System.out.println("Media list after sorting by title and cost:");
         for (Media media : itemsOrdered) {
             System.out.println(media.toString());
@@ -154,12 +160,21 @@ public class CartLHY {
     }
 
     public void sortMediaByCost() {
-        Collections.sort(itemsOrdered, Media.COMPARE_BY_COST_TITLE);
+        FXCollections.sort(itemsOrdered, Media.COMPARE_BY_COST_TITLE);
         System.out.println("Media list after sorting by cost and title:");
         for (Media media : itemsOrdered) {
             System.out.println(media.toString());
         }
     }
-
-
+    
+    public String placeOrder() {
+    	if(itemsOrdered.isEmpty()) {
+    		return "Oops! It looks like your cart is empty.";
+    	} else {
+    		qtyOrdered = 0;
+    		itemsOrdered.clear();
+    		return "Success! Your order has been placed.\\nYour cart is now empty.";
+    	}
+    }
+    
 }
